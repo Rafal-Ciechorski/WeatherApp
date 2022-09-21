@@ -20,8 +20,8 @@ public class WebClient {
         return WeatherDto.builder()
                 .humidity(openWeatherDto.getMain().getHumidity())
                 .pressure(openWeatherDto.getMain().getPressure())
-                .temperature(openWeatherDto.getMain().getTemperature())
-                .wind_speed(openWeatherDto.getWind().getWind_speed())
+                .temperature(openWeatherDto.getMain().getTemp())
+                .wind_speed(openWeatherDto.getWind().getSpeed())
                 .build();
     }
 }

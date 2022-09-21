@@ -5,5 +5,5 @@ import lombok.Getter;
 @Getter
 public class OpenWeatherWindDto {
 
-    private float wind_speed;
+    private float speed;
 }
