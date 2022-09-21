@@ -13,8 +13,15 @@ public class WebClient {
     private static final String API_KEY = "502e5f321e0e0e548235305eaa2f3c1d";
 
 
-    public WeatherDto getWeatherForCity(String city, Class<OpenWeatherDto> responseType)
+    public WeatherDto getWeatherForCity(String city)
     {
-        OpenWeatherDto openWeatherDto = restTemplate.getForObject(WEATHER_URL+"weather?q={city}&appid={api_key}&units=metric", responseType,city, API_KEY);
+        OpenWeatherDto openWeatherDto = restTemplate.getForObject(WEATHER_URL+"weather?q={city}&appid={api_key}&units=metric",OpenWeatherDto.class, city, API_KEY);
+
+        return WeatherDto.builder()
+                .humidity(openWeatherDto.getMain().getHumidity())
+                .pressure(openWeatherDto.getMain().getPressure())
+                .temperature(openWeatherDto.getMain().getTemperature())
+                .wind_speed(openWeatherDto.getWind().getWind_speed())
+                .build();
     }
 }

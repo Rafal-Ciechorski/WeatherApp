@@ -15,9 +15,7 @@ public class WeatherService {
     public WeatherDto getWeather()
     {
 
-        String response = webClient.getWeatherForCity("Warsaw",String.class);
-        log.info(response);
-        return null;
+        return webClient.getWeatherForCity("Warsaw");
     }
 
 
